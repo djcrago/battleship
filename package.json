@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "watch": "jest --watch *.js",
+    "watch": "jest --watch ./src/*.js",
     "build": "webpack",
     "start": "webpack serve --open",
     "push": "git subtree push --prefix dist origin gh-pages"
