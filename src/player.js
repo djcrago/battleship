@@ -1,20 +1,17 @@
 import gameboard from './gameboard';
 
 export default function player(name, computer) {
-  const playerGameboard = gameboard();
-
-  function takeTurn(enemy, coordinates) {
+  function takeTurn(enemyGameboard, coordinates) {
     let result;
 
-    if (!computer) result = enemy.playerGameboard.receiveAttack(coordinates);
+    if (!computer) result = enemyGameboard.receiveAttack(coordinates);
 
     if (computer) {
       let randomCoordinates = getRandomCoordinates();
-      result = enemy.playerGameboard.receiveAttack(randomCoordinates);
-      if (result !== null) return result;
+      result = enemyGameboard.receiveAttack(randomCoordinates);
       while (result === null) {
         randomCoordinates = getRandomCoordinates();
-        result = enemy.playerGameboard.receiveAttack(randomCoordinates);
+        result = enemyGameboard.receiveAttack(randomCoordinates);
       }
       return result;
     }
@@ -29,5 +26,5 @@ export default function player(name, computer) {
     return randomCoordinates;
   }
 
-  return { name, playerGameboard, takeTurn };
+  return { name, takeTurn };
 }

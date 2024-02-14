@@ -1,26 +1,32 @@
-export default function displayBoard(player) {
+export default function displayBoard(gameBoard) {
   const domGameboards = document.querySelector('.gameboards');
 
-  const domBoard = document.createElement('div');
-  domBoard.classList.toggle('board');
+  const newDOMBoard = document.createElement('div');
+  newDOMBoard.classList.toggle('board');
 
-  const name = document.createElement('h3');
-  // used?
-  name.classList.toggle('player-name');
-  name.textContent = player.name;
-  domBoard.appendChild(name);
-
-  player.playerGameboard.board.forEach((row) => {
+  gameBoard.board.forEach((row) => {
     const domRow = document.createElement('div');
     domRow.classList.toggle('row');
+
     row.forEach((cell) => {
       const domCell = document.createElement('button');
       domCell.classList.toggle('cell');
+
+      // populate domCells with something to indicate presence of ship
       if (cell[0] !== undefined) domCell.textContent = 'S';
+
+      domCell.addEventListener('click', () => {
+        const y = gameBoard.board.indexOf(row);
+        const x = gameBoard.board[y].indexOf(cell);
+        gameBoard.receiveAttack([x, y]);
+        domCell.textContent = 'X';
+      });
+
       domRow.appendChild(domCell);
     });
-    domBoard.appendChild(domRow);
+
+    newDOMBoard.appendChild(domRow);
   });
 
-  domGameboards.appendChild(domBoard);
+  domGameboards.appendChild(newDOMBoard);
 }

@@ -13,7 +13,7 @@ export default function gameboard() {
   const ships = [];
   const attacksReceived = [];
 
-  function placeShip(coordinates = [0, 0, 0, 0]) {
+  function placeShip(coordinates) {
     const xStart = coordinates[0];
     const yStart = coordinates[1];
     const xEnd = coordinates[2];
