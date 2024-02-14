@@ -10,7 +10,6 @@ export default function ship(length) {
   }
 
   return {
-    length,
     hit,
     isSunk,
   };
