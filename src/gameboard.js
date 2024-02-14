@@ -19,21 +19,43 @@ export default function gameboard() {
     const xEnd = coordinates[2];
     const yEnd = coordinates[3];
 
-    for (let yIfOccupied = yStart; yIfOccupied <= yEnd; yIfOccupied += 1) {
-      for (let xIfOccupied = xStart; xIfOccupied <= xEnd; xIfOccupied += 1) {
-        if (board[yIfOccupied][xIfOccupied][0] !== undefined) return;
+    if (xEnd > xStart || yEnd > yStart) {
+      for (let yIfOccupied = yStart; yIfOccupied <= yEnd; yIfOccupied += 1) {
+        for (let xIfOccupied = xStart; xIfOccupied <= xEnd; xIfOccupied += 1) {
+          if (board[yIfOccupied][xIfOccupied][0] !== undefined) return;
+        }
+      }
+
+      let length = xEnd - xStart + 1;
+      if (length === 1) length = yEnd - yStart + 1;
+
+      const newShip = ship(length);
+      ships.push(newShip);
+
+      for (let y = yStart; y <= yEnd; y += 1) {
+        for (let x = xStart; x <= xEnd; x += 1) {
+          board[y][x][0] = newShip;
+        }
       }
     }
 
-    let length = xEnd - xStart + 1;
-    if (length === 1) length = yEnd - yStart + 1;
+    if (xEnd < xStart || yEnd < yStart) {
+      for (let yIfOccupied = yEnd; yIfOccupied <= yStart; yIfOccupied += 1) {
+        for (let xIfOccupied = xEnd; xIfOccupied <= xStart; xIfOccupied += 1) {
+          if (board[yIfOccupied][xIfOccupied][0] !== undefined) return;
+        }
+      }
 
-    const newShip = ship(length);
-    ships.push(newShip);
+      let length = xStart - xEnd + 1;
+      if (length === 1) length = yStart - yEnd + 1;
 
-    for (let y = yStart; y <= yEnd; y += 1) {
-      for (let x = xStart; x <= xEnd; x += 1) {
-        board[y][x][0] = newShip;
+      const newShip = ship(length);
+      ships.push(newShip);
+
+      for (let y = yEnd; y <= yStart; y += 1) {
+        for (let x = xEnd; x <= xStart; x += 1) {
+          board[y][x][0] = newShip;
+        }
       }
     }
   }
