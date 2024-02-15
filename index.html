@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
   <script defer src="bundle.js"></script></head>
   <body>
     <div class="title">
@@ -15,6 +14,65 @@
       <div class="gameboards"></div>
       <h2 class="player1"></h2>
     </div>
-    <dialog class="start-dialog"></dialog>
+    <dialog class="start-dialog">
+      <div class="info">
+        <h3>Hello! Thank you for playing Battleship!</h3>
+        <p><strong>Rules:</strong></p>
+        <p>
+          In this game you take turns guessing where your enemy's ships are
+          located by clicking squares on the enemy's grid (Computer).
+        </p>
+        <p>
+          If you successfully hit a ship, the square will be marked with an 'X'
+          and turn red. If you miss, the square will be marked with an 'O'. The
+          computer will then take a turn and try to hit your ships, which are
+          marked with an 'S'.
+        </p>
+        <p>
+          The game will end when you have sunk all of your enemy's ships, or
+          when they have sunk all of yours! Have fun!
+        </p>
+      </div>
+      <div class="instructions">
+        <p><strong>Instructions:</strong></p>
+        <p>When you click the button below, you will place five ships:</p>
+        <ul>
+          <li>The Carrier (5 squares long)</li>
+          <li>The Battleship (4 squares long)</li>
+          <li>The Destroyer (3 squares long)</li>
+          <li>The Submarine (3 squares long)</li>
+          <li>The Patrol Boat (2 squares)</li>
+        </ul>
+        <p>
+          Ships can be placed horizontally (left and right) or vertically (up
+          and down). Ships cannot be placed diagonally, or on top of each other.
+        </p>
+        <p>
+          After clicking the button you will be prompted ten times to enter in
+          the start and end coordinates of your five ships. Use the grid shown
+          below to place your ships.
+        </p>
+        <p>
+          (It may be helpful to draw out where you want your ships to go ahead
+          of time on a piece of paper)
+        </p>
+        <p>
+          <strong>
+            You will be prompted to place the ships in the above order (Carrier
+            first, Battleship second, etc.)
+          </strong>
+        </p>
+        <p>
+          Example of how to place a ship:
+        </p>
+        <ul>
+            <li>On the first prompt type "3,4"</li>
+            <li>On the second prompt type "6,4"</li>
+            <li>This will result in a ship being placed as shown in the grid below</li>
+        </ul>
+        
+        </p>
+      </div>
+    </dialog>
   </body>
 </html>
