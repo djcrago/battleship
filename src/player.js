@@ -1,12 +1,12 @@
 import gameboard from './gameboard';
 
-export default function player(name, computer) {
+export default function player(name) {
   function takeTurn(enemyGameboard, coordinates) {
     let result;
 
-    if (!computer) result = enemyGameboard.receiveAttack(coordinates);
+    if (coordinates) result = enemyGameboard.receiveAttack(coordinates);
 
-    if (computer) {
+    if (!coordinates) {
       let randomCoordinates = getRandomCoordinates();
       result = enemyGameboard.receiveAttack(randomCoordinates);
       while (result === null) {

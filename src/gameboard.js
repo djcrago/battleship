@@ -95,5 +95,5 @@ export default function gameboard() {
     return numberOfSunkenShips === ships.length;
   }
 
-  return { board, placeShip, receiveAttack, fleetIsSunk };
+  return { board, attacksReceived, placeShip, receiveAttack, fleetIsSunk };
 }
