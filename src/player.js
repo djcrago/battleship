@@ -1,6 +1,11 @@
-import gameboard from './gameboard';
-
 export default function player(name) {
+  function getRandomCoordinates() {
+    const randomX = Math.floor(Math.random() * 9);
+    const randomY = Math.floor(Math.random() * 9);
+    const randomCoordinates = [randomX, randomY];
+    return randomCoordinates;
+  }
+
   function takeTurn(enemyGameboard, coordinates) {
     let result;
 
@@ -17,13 +22,6 @@ export default function player(name) {
     }
 
     return result;
-  }
-
-  function getRandomCoordinates() {
-    const randomX = Math.floor(Math.random() * 9);
-    const randomY = Math.floor(Math.random() * 9);
-    const randomCoordinates = [randomX, randomY];
-    return randomCoordinates;
   }
 
   return { name, takeTurn };
